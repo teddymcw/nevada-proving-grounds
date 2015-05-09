@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^sign_out$', views.sign_out, name='sign_out'),
     url(r'^register$', views.register, name='register'),
     url(r'^edit$', views.edit, name='edit'),
+    url(r'verify/', 'lotsafiles.vies.img_upload', name='account-verify'),
     url(r'^admin/', include(admin.site.urls)),
 )
