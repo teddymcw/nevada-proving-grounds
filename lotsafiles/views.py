@@ -20,7 +20,7 @@ def img_upload(request):
             print request.user
 
         if verify_form.is_valid():
-            verified_file = VerifyMembership(verify_membership_file=request.FILES['verify_membership_file'])
+            verified_file = VerifyMembership(verify_membership_file=request.FILES['verify_membership_file']) #user=cur_user, #insert at beginning when ready 
             verified_file.save()
             # Redirect to the document list after POST
             return HttpResponseRedirect(reverse('register'))
