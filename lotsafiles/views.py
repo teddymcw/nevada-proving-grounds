@@ -8,23 +8,22 @@ from models import VerifyMembership
 def img_upload(request):
     if request.method == 'POST':
 
-        verify_form = VerifyForm(request.POST, request.FILES)
-        hack = 1
+        verify_form = VerifyForm(request.POST, request.FILES)      
         try:
             cur_user = request.user
-            cur_user += str(hack)
-            hack += 1
-            print request.user
+            print cur_user
         except Exception as e:
-            
+
+            cur_user = request.user
+            print cur_user
             print e
             print request.user
 
         if verify_form.is_valid():
-            verified_file = VerifyMembership(user=cur_user, verify_membership_file=request.FILES['verify_membership_file'])
+            verified_file = VerifyMembership(verify_membership_file=request.FILES['verify_membership_file'])
             verified_file.save()
             # Redirect to the document list after POST
-            return HttpResponseRedirect(reverse('account-verify'))
+            return HttpResponseRedirect(reverse('register'))
 
     else:
         verify_form = VerifyForm()

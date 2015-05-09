@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'contact',
     'payments',
+    'lotsafiles',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
