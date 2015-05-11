@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, include, url
 from payments import views
 from django.contrib import admin
+import lotsafiles.views 
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -15,5 +17,6 @@ urlpatterns = patterns('',
     url(r'^register$', views.register, name='register'),
     url(r'^edit$', views.edit, name='edit'),
     url(r'verify/', 'lotsafiles.views.img_upload', name='account-verify'),
+    url(r'again_verify/', lotsafiles.views.CbvImgUpView.as_view(), name='class-account-verify'),
     url(r'^admin/', include(admin.site.urls)),
 )

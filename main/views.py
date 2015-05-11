@@ -1,4 +1,5 @@
 from django.shortcuts import render_to_response
+#i don't see why any of this is necessary at the moment
 from payments.models import User
 
 
