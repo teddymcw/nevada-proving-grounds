@@ -28,9 +28,9 @@ def img_upload(request):
             return HttpResponseRedirect(reverse('register'))
 
     else:
-        again_verify_form = AgainVerifyForm()
+        verify_form = AgainVerifyForm()
 
-    context = {'verify_form': again_verify_form}
+    context = {'verify_form': verify_form}
     return render(request, 'upload_verification.html', context)# Create your views here.
 
 class CbvImgUpView(FormView):

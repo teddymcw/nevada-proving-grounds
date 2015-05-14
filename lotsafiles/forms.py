@@ -6,4 +6,4 @@ class VerifyForm(forms.Form):
 
 
 class AgainVerifyForm(forms.Form):
-    again_ver_file = forms.FileField(label='Again, please upload an image', )
+    again_verify_memb = forms.FileField(label='Again, please upload an image', )
