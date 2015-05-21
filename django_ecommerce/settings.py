@@ -4,14 +4,21 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 SITE_ROOT = os.path.dirname(PROJECT_ROOT)
+
 STRIPE_SECRET = 'sk_test_4QBquf6d5EzsnJC1fTI2GBGm'
 STRIPE_PUBLISHABLE = 'pk_test_4QBqqGvCk9gaNn3pl1cwxcAS'
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
+
+
+#The DiscoverRunner was needed for updating past 1.5.5
+#its the default test runner starting in Django 1.6
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
 MANAGERS = ADMINS
 
@@ -56,13 +63,15 @@ MEDIA_ROOT = os.path.join(SITE_ROOT, 'media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = os.path.join(SITE_ROOT, 'media/')
+MEDIA_URL = '/media/'
+
+TEMPLATE_DIRS = (os.path.join(SITE_ROOT, 'templates'),)
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = os.path.join(SITE_ROOT,'static')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -105,7 +114,7 @@ ROOT_URLCONF = 'django_ecommerce.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'django_ecommerce.wsgi.application'
 
-TEMPLATE_DIRS = (os.path.join(SITE_ROOT, 'templates'),)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
